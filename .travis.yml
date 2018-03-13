@@ -1,0 +1,39 @@
+language: cpp
+
+sudo: required
+
+dist: trusty
+
+matrix:
+  include:
+    - os: linux
+      compiler: gcc
+      env: BUILD_TYPE=Debug CODECOV=ON COMPILER=GCC
+    - os: linux
+      compiler: gcc
+      env: BUILD_TYPE=Release CODECOV=OFF COMPILER=GCC
+    - os: linux
+      compiler: clang
+      env: BUILD_TYPE=Debug CODECOV=OFF COMPILER=CLANG
+    - os: linux
+      compiler: clang
+      env: BUILD_TYPE=Release CODECOV=OFF COMPILER=CLANG
+    - os: osx
+      compiler: clang
+      env: BUILD_TYPE=Debug CODECOV=OFF COMPILER=CLANG
+    - os: osx
+      compiler: clang
+      env: BUILD_TYPE=Release CODECOV=OFF COMPILER=CLANG
+
+install:
+  - 'ci/install.sh'
+
+script:
+  - 'ci/script.sh'
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+
+after_failure: 
+  - cat build/Testing/Temporary/LastTest.log
+  - cat build/Testing/Temporary/LastTestsFailed.log
