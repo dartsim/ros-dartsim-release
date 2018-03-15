@@ -1,0 +1,13 @@
+Source: ros-kinetic-dartsim
+Section: misc
+Priority: extra
+Maintainer: Michael X. Grey <grey@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), cmake, freeglut3-dev, libassimp-dev, libboost-all-dev, libbullet-dev, libeigen3-dev, libfcl-0.5-dev, libflann-dev, libtinyxml-dev, libtinyxml2-dev, liburdfdom-dev, libxi-dev, libxmu-dev, pkg-config
+Homepage: http://dartsim.github.io/
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-dartsim
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, freeglut3-dev, libassimp-dev, libboost-all-dev, libbullet-dev, libeigen3-dev, libfcl-0.5-dev, libflann-dev, libtinyxml-dev, libtinyxml2-dev, liburdfdom-dev, libxi-dev, libxmu-dev, ros-kinetic-catkin
+Description: DART (Dynamic Animation and Robotics Toolkit) is a collaborative, cross-platform, open source library created by the Georgia Tech Graphics Lab and Humanoid Robotics Lab, with ongoing support by the University of Washington Personal Robotics Lab and Open Robotics.
+ DART provides data structures and algorithms for kinematic and dynamic applications in robotics and computer animation.
